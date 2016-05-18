@@ -1,7 +1,7 @@
 wap站改造优化方案
 =========
 
-####使用说明
+####使用说明(直接上代码)
 
 之前的老代码
 
@@ -23,7 +23,8 @@ $('#content .history .noinput').on('click',function(){
 改造后的代码
 
 ```js
-    var homeView = new view.extend([msgCode, utils, base], {
+    var view = require('view');
+    var homeView = new view.extend([msgCode, utils, base], { //继承其他类
         el: '#content', //所有事件都是绑定到el上
         STATIC: { // 常量值
             size: 100,
@@ -55,6 +56,15 @@ $('#content .history .noinput').on('click',function(){
             dt_tpl: require('template/homeView/dt_tpl')
         }
     });
+```
+另外，还可以添加一些其他功能
+
+```js
+homeView.on('xxx', function(){ //观察者模式
+  ///
+});
+homeView.trigger('xxx'); // 触发
+
 ```
 
 ####优点好处
