@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>test GomeBone</title>
+</head>
+<body>
+    <div id="main">
+        <input type="button" value="click">
+    </div>
+    <input type="button" value="ok">
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="../main.js"></script>
+    <script type="text/javascript">
+        new GomeBone.View({
+            el: "body",
+            initialize: function() {},
+            methods: {
+                "click #main input": "click_input"
+            },
+            click_input: function() {
+                alert("click");
+            }
+        });
+    </script>
+</body>
+</html>
