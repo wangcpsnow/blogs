@@ -5,6 +5,7 @@
 
 var path = require('path'),
     config;
+var db = require("./db.config.json");
 
 config = {
     // ### Production
@@ -13,29 +14,30 @@ config = {
     production: {
         url: 'http://doubaor.wang',
         mail: {},
-        database: {
+        /*database: {
             client: 'sqlite3',
             connection: {
                 filename: path.join(__dirname, '/content/data/ghost.db')
             },
             debug: false
-        },
+        },*/
+	database: db,
 
         // 配置MySQL 数据库
         /*database: {
             client: 'mysql',
             connection: {
-                host     : 'host',
+                host     : '127.0.0.1',
                 user     : 'user',
-                password : 'password',
-                database : 'database',
+                password : 'pwd',
+                database : 'dbname',
                 charset  : 'utf8'
             },
             debug: false
         },*/
 
         server: {
-            host: '*.*.*.*',
+            host: '127.0.0.1',
             port: '2368'
         },
 
@@ -83,7 +85,7 @@ config = {
     development: {
         // The url to use when providing links to the site, E.g. in RSS and email.
         // Change this to your Ghost blog's published URL.
-        url: 'http://localhost:2368',
+        url: 'http://doubaor.wang',
 
         // Example mail config
         // Visit http://support.ghost.org/mail for instructions
