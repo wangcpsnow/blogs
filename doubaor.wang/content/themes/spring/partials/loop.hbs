@@ -1,0 +1,28 @@
+{{! Previous/next page links - only displayed on page 2+ }}
+
+{{! This is the post loop - each post will be output using this markup }}
+{{#foreach posts}}
+<article class="post-in-list post">
+    <section class="post-excerpt">
+        <a href="/php-mssql/">
+            <p><img class="lazy cover" alt="cover" src="{{image}}" style="display: block;"></p>
+        </a>
+        <div class="info-mask">
+            <div class="mask-wrapper">
+                <h2 class="post-title"><a href="{{url}}">{{{title}}}</a></h2>
+                <div class="post-meta">
+                    <span class="post-time">
+                        <time datetime="{{date format='YYYY-MM-DD'}}">{{date format="YYYY年MM月DD日"}}</time>
+                    </span>
+                    <span class="post-tags">
+                        {{tags}}
+                    </span>
+                </div>
+            </div>
+        </div>
+    </section>
+</article>
+{{/foreach}}
+
+{{! Previous/next page links - displayed on every page }}
+{{pagination}}

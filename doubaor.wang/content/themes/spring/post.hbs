@@ -1,0 +1,70 @@
+{{!< default}}
+
+{{! The comment above "< default" means - insert everything in this file into
+    the {body} of the default.hbs template, which contains our header/footer. }}
+
+{{! Everything inside the #post tags pulls data from the post }}
+{{#post}}
+
+<header id="header" class="home-header blog-background banner-mask {{#if image}}" style="display: table;background-image: url({{image}}){{else}}no-cover{{/if}}">
+
+        <div class="nav-header">
+        <div class="nav-header-container">
+             <a href="/" class="back-home">Home</a>
+        </div>
+
+        </div>
+        <div class="header-wrap">
+            <div class="post-info-container">
+                <h2 class="post-page-title ">{{title}}</h2>
+                <time class="post-page-time" datetime="{{date format='YYYY-MM-DD'}}">{{date format="YYYY年MM月DD日"}}</time>
+                {{#author}}
+                    <span class="post-page-author">{{name}}</span>
+                {{/author}}
+                <span class="post-page-tags">
+                    {{tags}}
+               </span>
+            </div>
+
+        </div>
+        <div class="arrow_down">
+               <a href="javascript:;"></a>
+        </div>
+    </header>
+
+<main class="content" role="main" id="main">
+    <article class="{{post_class}}">
+
+        <section class="post-content">
+            <div class="single-post-inner">
+                {{content}}
+            </div>
+        </section>
+
+        <footer class="post-footer">
+
+        </footer>
+
+    </article>
+</main>
+
+<aside class="read-next">
+    {{#next_post}}
+    <a class="read-next-story {{#if image}}" style="background-image: url({{image}}){{else}}no-cover{{/if}}" href="{{url}}">
+        <section class="post">
+            <h2>{{title}}</h2>
+            <p>{{excerpt words="19"}}&hellip;</p>
+        </section>
+    </a>
+    {{/next_post}}
+    {{#prev_post}}
+    <a class="read-next-story prev {{#if image}}" style="background-image: url({{image}}){{else}}no-cover{{/if}}" href="{{url}}">
+        <section class="post">
+            <h2>{{title}}</h2>
+            <p>{{excerpt words="19"}}&hellip;</p>
+        </section>
+    </a>
+    {{/prev_post}}
+</aside>
+
+{{/post}}
